@@ -4090,9 +4090,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Unviersite.csproj",
-      "projectName": "Unviersite",
-      "projectPath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Unviersite.csproj",
+      "projectUniqueName": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Universite.csproj",
+      "projectName": "Universite",
+      "projectPath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Universite.csproj",
       "packagesPath": "C:\\Users\\pc-hp\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\obj\\",
       "projectStyle": "PackageReference",
