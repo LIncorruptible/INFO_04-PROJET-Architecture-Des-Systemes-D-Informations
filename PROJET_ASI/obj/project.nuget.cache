@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FHSU96RKF7iLRQJ8dMajqx35lpK67mUUecoHCPmaFgm4+6wvM56GbtxHFpwp4PGwuK3W0qEeSY9aOtBW3UGKNA==",
+  "dgSpecHash": "+Ywyah895nqezMx9rkW2PHw3LTT7DATV3XPH8KbTh97ILYbnMosue2Sc7inVCOqrR2aA07lM72nF09h8pzXgqw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Universite.csproj",
+  "projectFilePath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\PROJET_ASI\\PROJET_ASI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pc-hp\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\pc-hp\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
