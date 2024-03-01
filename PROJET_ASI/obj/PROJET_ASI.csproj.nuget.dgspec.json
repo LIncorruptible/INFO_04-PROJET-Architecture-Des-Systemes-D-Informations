@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Universite.csproj": {}
+    "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\PROJET_ASI\\PROJET_ASI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Universite.csproj": {
+    "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\PROJET_ASI\\PROJET_ASI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Universite.csproj",
-        "projectName": "Universite",
-        "projectPath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\Universite.csproj",
+        "projectUniqueName": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\PROJET_ASI\\PROJET_ASI.csproj",
+        "projectName": "PROJET_ASI",
+        "projectPath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\PROJET_ASI\\PROJET_ASI.csproj",
         "packagesPath": "C:\\Users\\pc-hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\Unviersite\\obj\\",
+        "outputPath": "C:\\Users\\pc-hp\\Documents\\Visual Studio 2022\\INFO_04-PROJET-Architecture-Des-Systemes-D-Informations\\PROJET_ASI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,6 @@
               "version": "[8.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.2, )"
             }
