@@ -1,0 +1,37 @@
+﻿@page
+@model PROJET_ASI.Pages.Comportes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Comporte</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comporte.Quantite)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comporte.Quantite)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comporte.Logement)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comporte.Logement.Adresse)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comporte.Equipement)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comporte.Equipement.Nom_equipement)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Comporte.ID">Edit</a> |
+    <a asp-page="./Index" asp-route-id="@Model.Comporte.LogementID">Back to List</a>
+</div>

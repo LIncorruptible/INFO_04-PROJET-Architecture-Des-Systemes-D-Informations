@@ -1,0 +1,25 @@
+﻿@page
+@model PROJET_ASI.Pages.Equipements.DetailsModel
+
+@{
+    ViewData["Title"] = "Détails";
+}
+
+<h1>Détails</h1>
+
+<div>
+    <h4>Equipement</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipement.Nom_equipement)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipement.Nom_equipement)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Equipement.ID">Modifier</a> |
+    <a asp-page="./Index">Retour aux équipements</a>
+</div>

@@ -1,0 +1,38 @@
+﻿@page
+@model PROJET_ASI.Pages.Reservations.DeleteModel
+
+@{
+    ViewData["Title"] = "Supprimer";
+}
+
+<h3>Voulez-vous supprimer cet réservation ?</h3>
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.DateDebut)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.DateDebut)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.DateFin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.DateFin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.Logement)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.Logement.Adresse)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Reservation.ID" />
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-page="./Index">Annuler</a>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+﻿@page
+@model PROJET_ASI.Pages.Reservations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Ajouter une réservation</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].DateDebut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].DateFin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].Logement)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Reservation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDebut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logement.Adresse)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Modifier</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Détails</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

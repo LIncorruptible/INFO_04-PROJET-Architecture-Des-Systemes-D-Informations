@@ -1,0 +1,37 @@
+﻿@page
+@model PROJET_ASI.Pages.Comportes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Nouvel équipement pour le @Html.DisplayFor(model => model.Logement.Adresse)</h4>
+<hr />
+<a asp-page="./Index" asp-route-id="@Model.Logement.ID">Revenir à la liste des logements</a>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Comporte.LogementID" value="@Model.Logement.ID" />
+            <div class="form-group">
+                <label asp-for="Comporte.EquipementID" class="control-label"></label>
+                <select asp-for="Comporte.EquipementID" class="form-control" asp-items="ViewBag.LequipementID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comporte.Quantite" class="control-label"></label>
+                <input asp-for="Comporte.Quantite" value="1" class="form-control" />
+                <span asp-validation-for="Comporte.Quantite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

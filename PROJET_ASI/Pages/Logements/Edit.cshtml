@@ -1,0 +1,55 @@
+﻿@page
+@model PROJET_ASI.Pages.Logements.EditModel
+
+@{
+    ViewData["Title"] = "Modifier";
+}
+
+<h1>Modifier</h1>
+
+<h4>Logement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Logement.ID" />
+            <div class="form-group">
+                <label asp-for="Logement.Adresse" class="control-label"></label>
+                <input asp-for="Logement.Adresse" class="form-control" />
+                <span asp-validation-for="Logement.Adresse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logement.Prix" class="control-label"></label>
+                <input asp-for="Logement.Prix" class="form-control" />
+                <span asp-validation-for="Logement.Prix" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logement.Superficie" class="control-label"></label>
+                <input asp-for="Logement.Superficie" class="form-control" />
+                <span asp-validation-for="Logement.Superficie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logement.Nb_chambres" class="control-label"></label>
+                <input asp-for="Logement.Nb_chambres" class="form-control" />
+                <span asp-validation-for="Logement.Nb_chambres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logement.ProprietaireID" class="control-label">Propriétaire</label>
+                <select asp-for="Logement.ProprietaireID" class="form-control" asp-items="ViewBag.ProprietaireID"></select>
+                <span asp-validation-for="Logement.ProprietaireID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sauvegarder" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Annuler</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

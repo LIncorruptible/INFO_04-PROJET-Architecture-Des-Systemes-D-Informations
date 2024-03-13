@@ -1,0 +1,43 @@
+﻿@page
+@model PROJET_ASI.Pages.Comportes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Comporte</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Comporte.ID" />
+            <div class="form-group">
+                <label asp-for="Comporte.LogementID" class="control-label">Logement</label>
+                <select asp-for="Comporte.LogementID" class="form-control" readonly asp-items="ViewBag.LeLogementId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comporte.EquipementID" class="control-label">Equipement</label>
+                <select asp-for="Comporte.EquipementID" class="form-control" readonly asp-items="ViewBag.LequipementID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comporte.Quantite" class="control-label"></label>
+                <input asp-for="Comporte.Quantite" class="form-control" />
+                <span asp-validation-for="Comporte.Quantite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" asp-route-id="@Model.Comporte.LogementID">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

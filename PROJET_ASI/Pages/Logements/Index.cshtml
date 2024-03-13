@@ -1,0 +1,61 @@
+﻿@page
+@model PROJET_ASI.Pages.Logements.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Ajouter un logement</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Logement[0].Adresse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logement[0].Prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logement[0].Superficie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logement[0].Nb_chambres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logement[0].Proprietaire)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Logement) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Superficie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nb_chambres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proprietaire.NomComplet)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Modifier</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Détails</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Supprimer</a> |
+                <a asp-page="../Comportes/Index" asp-route-id="@item.ID">Gérer les équipements</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

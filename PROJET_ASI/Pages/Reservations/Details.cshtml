@@ -1,0 +1,38 @@
+﻿@page
+@model PROJET_ASI.Pages.Reservations.DetailsModel
+
+@{
+    ViewData["Title"] = "Détails";
+}
+
+<h1>Détails</h1>
+
+<div>
+    <h4>Réservation</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.DateDebut)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.DateDebut)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.DateFin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.DateFin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservation.Logement)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reservation.Logement.Adresse)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="../Logements/Details" asp-route-id="@Model.Reservation.LogementID">Voir le logement</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Reservation.ID">Modifier</a> |
+    <a asp-page="./Index">Retour aux réservations</a>
+</div>

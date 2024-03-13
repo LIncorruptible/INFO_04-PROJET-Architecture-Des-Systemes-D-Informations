@@ -1,0 +1,83 @@
+﻿@page
+@model PROJET_ASI.Pages.Logements.DetailsModel
+
+@{
+    ViewData["Title"] = "Détails";
+}
+
+<h1>Détails</h1>
+
+<div>
+    <h4>Logement</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Logement.Adresse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Logement.Adresse)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Logement.Prix)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Logement.Prix)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Logement.Superficie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Logement.Superficie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Logement.Nb_chambres)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Logement.Nb_chambres)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Logement.Proprietaire)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Logement.Proprietaire.NomComplet)
+        </dd>
+    </dl>
+</div>
+
+@if (Model.Logement.LesComporte != null)
+{
+    <div>
+        <h4>Equipements</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Nom de l'équipement
+                    </th>
+                    <th>
+                        Quantité
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Logement.LesComporte)
+                {
+                    <tr>
+                        <td>
+                            <a asp-page="../Equipements/Index" asp-route-id="@item.Equipement.ID">@Html.DisplayFor(modelItem => item.Equipement.Nom_equipement)</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantite)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<div>
+    <a asp-page="../Proprietaires/Details" asp-route-id="@Model.Logement.ProprietaireID">Voir le propriétaire</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Logement.ID">Modifier</a> |
+    <a asp-page="./Index">Retour aux logements</a>
+</div>

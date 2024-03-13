@@ -1,0 +1,40 @@
+﻿@page
+@model PROJET_ASI.Pages.Proprietaires.EditModel
+
+@{
+    ViewData["Title"] = "Modifier";
+}
+
+<h1>Modifier</h1>
+
+<h4>Propriétaire</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Proprietaire.ID" />
+            <div class="form-group">
+                <label asp-for="Proprietaire.Nom" class="control-label"></label>
+                <input asp-for="Proprietaire.Nom" class="form-control" />
+                <span asp-validation-for="Proprietaire.Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Proprietaire.Prenom" class="control-label"></label>
+                <input asp-for="Proprietaire.Prenom" class="form-control" />
+                <span asp-validation-for="Proprietaire.Prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sauvegarder" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Annuler</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
