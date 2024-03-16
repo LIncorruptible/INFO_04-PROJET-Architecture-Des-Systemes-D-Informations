@@ -23,5 +23,8 @@ namespace PROJET_ASI.Models
         // Lien de navigation ManyToMany 
         [Display(Name = "Equipements du logement")]
         public ICollection<Comporte> LesComporte { get; set; }
+
+        // Les réservations pour ce logement
+        public ICollection<Reservation> LesReservations { get; set; }
     }
 }

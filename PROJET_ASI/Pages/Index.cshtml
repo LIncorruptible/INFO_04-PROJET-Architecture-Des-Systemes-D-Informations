@@ -5,6 +5,39 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Annonces</h1>
+    @* <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+
+    <!-- pour chaque logement -->
+    @foreach (var logEq in Model.logementEquipements)
+    {
+        <div class="card carte"
+            style="margin:10px;">
+            <div class="card-body">
+
+                <h5 class="card-title"
+                style="display:flex; align-items:flex-start">@logEq.Logement.Adresse</h5>
+
+                <h5 class="card-title
+                    text-right">
+                    @logEq.Logement.Superficie m² - @logEq.Logement.Prix € - @logEq.Logement.Nb_chambres chambre(s)
+                </h5>
+
+            </div>
+
+            <div class="card-footer">
+                <h6>Equipements:</h6>
+                <!-- pour chaque équipement du logement -->
+                <ul class="list-inline">
+                    @foreach (var eq in logEq.Equipements)
+                    {
+                        <li class="list-inline-item">
+                            @eq.Nom_equipement
+                        </li>
+                    }
+            </div>
+
+            <a asp-page="./Logements/Details" asp-route-id="@logEq.Logement.ID" class="btn btn-primary">Détails</a>
+        </div>
+    }
 </div>

@@ -16,7 +16,6 @@ namespace PROJET_ASI.Models
         public string NomComplet
         {
             get
-
             {
                 return Nom + " " + Prenom;
             }
@@ -39,5 +38,8 @@ namespace PROJET_ASI.Models
                 else return -1;
             }
         }
+
+        // ID de l'utilisateur associé
+        public int? UserID { get; set; }
     }
 }
