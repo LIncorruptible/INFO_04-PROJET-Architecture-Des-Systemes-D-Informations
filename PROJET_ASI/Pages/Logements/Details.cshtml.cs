@@ -18,6 +18,8 @@ namespace PROJET_ASI.Pages.Logements
 
         public Logement Logement { get; set; } = default!;
 
+        public IList<Equipement> Equipements { get; set; } = default!;
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -28,6 +30,7 @@ namespace PROJET_ASI.Pages.Logements
             var logement = await _context.Logement
                 .Include(logement => logement.Proprietaire)
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (logement == null)
             {
                 return NotFound();
@@ -35,6 +38,14 @@ namespace PROJET_ASI.Pages.Logements
             else
             {
                 Logement = logement;
+
+                // On récupère les équipements du logement
+                var equipements = from e in _context.Equipement
+                                  join c in _context.Comporte on e.ID equals c.EquipementID
+                                  where c.LogementID == id
+                                  select e;
+
+                Equipements = await equipements.ToListAsync();
             }
             return Page();
         }

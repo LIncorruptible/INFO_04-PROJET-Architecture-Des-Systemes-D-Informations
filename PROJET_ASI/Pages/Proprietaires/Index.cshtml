@@ -5,52 +5,72 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@if (Model.IsAdmin)
+{
+    <h1>Index des propriétaires</h1>
 
-<p>
-    <a asp-page="Create">Ajouter un propriétaire</a>
-</p>
-
-<form>
     <p>
-        Nom du propriétaire : <input type="text" name="SearchString">
-        <input type="submit" value="Filtrer" />
+        <a asp-page="Create">Ajouter un propriétaire</a>
     </p>
-</form>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Proprietaires[0].Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Proprietaires[0].Prenom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Proprietaires[0].NbLogements)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Proprietaires) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prenom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NbLogements)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Modifier</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Voir les détails</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Supprimer</a>
-            </td>
-        </tr>
+    <form>
+        <p>
+            Nom du propriétaire : <input type="text" name="SearchString">
+            <input type="submit" value="Filtrer" />
+        </p>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Proprietaires[0].Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Proprietaires[0].Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Proprietaires[0].NbLogements)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Proprietaires)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NbLogements)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Modifier</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Voir les détails</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+} else
+{
+    <!-- Utilisation method post OnPostRedirectAsync -->
+    <form method="post">
+        <div class="alert alert-danger" role="alert">
+            Vous n'avez pas les droits pour accéder à cette page.
+        </div>
+        
+        <!-- Proposer à l'utilisateur de consulter les détails de son profil propriétaire -->
+        <p>
+            <a asp-page="./Details" asp-route-id="@Model.proprietaireID">Voir les détails de votre profil propriétaire</a>
+        </p>
+
+    </form>
+
 }
-    </tbody>
-</table>

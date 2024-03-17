@@ -25,17 +25,20 @@
 
             </div>
 
-            <div class="card-footer">
-                <h6>Equipements:</h6>
-                <!-- pour chaque équipement du logement -->
-                <ul class="list-inline">
-                    @foreach (var eq in logEq.Equipements)
-                    {
-                        <li class="list-inline-item">
-                            @eq.Nom_equipement
-                        </li>
-                    }
-            </div>
+            @if(logEq.Equipements.Count > 0)
+            {
+                <div class="card-footer">
+                    <h6>Equipements:</h6>
+                    <!-- pour chaque équipement du logement -->
+                    <ul class="list-inline">
+                        @foreach (var eq in logEq.Equipements)
+                        {
+                            <li class="list-inline-item">
+                                @eq.Nom_equipement
+                            </li>
+                        }
+                </div>
+            }
 
             <a asp-page="./Logements/Details" asp-route-id="@logEq.Logement.ID" class="btn btn-primary">Détails</a>
         </div>

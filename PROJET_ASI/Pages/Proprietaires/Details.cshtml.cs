@@ -11,7 +11,7 @@ using PROJET_ASI.Models;
 
 namespace PROJET_ASI.Pages.Proprietaires
 {
-    [Authorize]
+    [Authorize(Roles = "Administrateur, Proprietaire")]
     public class DetailsModel(PROJET_ASI.Data.ApplicationDbContext context) : PageModel
     {
         private readonly PROJET_ASI.Data.ApplicationDbContext _context = context;
@@ -29,6 +29,7 @@ namespace PROJET_ASI.Pages.Proprietaires
             var proprietaires = await _context.Proprietaire
                 .Include(f => f.LogementsAppartient)
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (proprietaires == null)
             {
                 return NotFound();
