@@ -318,6 +318,9 @@ namespace PROJET_ASI.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.ToTable("Proprietaire");
@@ -339,6 +342,9 @@ namespace PROJET_ASI.Data.Migrations
 
                     b.Property<int>("LogementID")
                         .HasColumnType("int");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -431,7 +437,7 @@ namespace PROJET_ASI.Data.Migrations
             modelBuilder.Entity("PROJET_ASI.Models.Reservation", b =>
                 {
                     b.HasOne("PROJET_ASI.Models.Logement", "Logement")
-                        .WithMany()
+                        .WithMany("LesReservations")
                         .HasForeignKey("LogementID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -447,6 +453,8 @@ namespace PROJET_ASI.Data.Migrations
             modelBuilder.Entity("PROJET_ASI.Models.Logement", b =>
                 {
                     b.Navigation("LesComporte");
+
+                    b.Navigation("LesReservations");
                 });
 
             modelBuilder.Entity("PROJET_ASI.Models.Proprietaire", b =>

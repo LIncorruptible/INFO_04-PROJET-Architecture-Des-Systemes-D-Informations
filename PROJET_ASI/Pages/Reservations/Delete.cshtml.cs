@@ -11,7 +11,7 @@ using PROJET_ASI.Models;
 
 namespace PROJET_ASI.Pages.Reservations
 {
-    [Authorize(Roles = "Administrateur,Proprietaire,Touriste")]
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly PROJET_ASI.Data.ApplicationDbContext _context;

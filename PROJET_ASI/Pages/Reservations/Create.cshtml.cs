@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,10 +12,24 @@ using PROJET_ASI.Models;
 
 namespace PROJET_ASI.Pages.Reservations
 {
-    [Authorize(Roles = "Administrateur,Touriste")]
-    public class CreateModel(PROJET_ASI.Data.ApplicationDbContext context) : PageModel
+    [Authorize]
+    public class CreateModel : Base
     {
-        private readonly PROJET_ASI.Data.ApplicationDbContext _context = context;
+
+        public CreateModel(
+            ApplicationDbContext context,
+            IAuthorizationService authorizationService,
+            UserManager<IdentityUser> userManager
+            ) : base(context, authorizationService, userManager)
+        {
+            _context = context;
+            _authorizationService = authorizationService;
+            _userManager = userManager;
+        }
+
+        private readonly PROJET_ASI.Data.ApplicationDbContext _context;
+        private readonly IAuthorizationService _authorizationService;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public IActionResult OnGet()
         {
@@ -38,6 +53,9 @@ namespace PROJET_ASI.Pages.Reservations
                 ModelState.AddModelError(nameof(Reservation.DateDebut), "La date de début doit être antérieure à la date de fin.");
                 return Page();
             }
+
+            // On associe l'utilisateur connecté à la réservation
+            Reservation.UserID = _userManager.GetUserId(User);
 
             _context.Reservation.Add(Reservation);
             await _context.SaveChangesAsync();

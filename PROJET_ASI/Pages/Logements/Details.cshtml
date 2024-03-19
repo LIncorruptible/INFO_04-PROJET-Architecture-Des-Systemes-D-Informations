@@ -42,6 +42,33 @@
             @Html.DisplayFor(model => model.Logement.Proprietaire.NomComplet)
         </dd>
     </dl>
+
+    <!-- Tableau des équipements du logement -->
+    @if(Model.Equipements != null)
+    {
+        <div>
+            <h4>Equipements</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nom de l'équipement
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Equipements)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nom_equipement)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
 </div>
 
 @if (Model.Logement.LesComporte != null)
@@ -80,4 +107,8 @@
     <a asp-page="../Proprietaires/Details" asp-route-id="@Model.Logement.ProprietaireID">Voir le propriétaire</a> |
     <a asp-page="./Edit" asp-route-id="@Model.Logement.ID">Modifier</a> |
     <a asp-page="./Index">Retour aux logements</a>
+
+
+    <a asp-page="./Index">Retour aux logements</a>
+    
 </div>

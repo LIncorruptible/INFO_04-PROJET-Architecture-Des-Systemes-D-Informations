@@ -16,5 +16,9 @@ namespace PROJET_ASI.Models
         public int LogementID { get; set; }
         // Lien de navigation
         public Logement? Logement { get; set; }
+
+        // ID de l'utilisateur associé
+        public string? UserID { get; set; }
+
     }
 }

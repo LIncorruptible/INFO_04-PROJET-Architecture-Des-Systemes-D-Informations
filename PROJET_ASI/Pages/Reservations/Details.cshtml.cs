@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -11,15 +12,10 @@ using PROJET_ASI.Models;
 
 namespace PROJET_ASI.Pages.Reservations
 {
-    [Authorize(Roles = "Administrateur,Proprietaire,Touriste")]
-    public class DetailsModel : PageModel
+    [Authorize]
+    public class DetailsModel(PROJET_ASI.Data.ApplicationDbContext context) : PageModel
     {
-        private readonly PROJET_ASI.Data.ApplicationDbContext _context;
-
-        public DetailsModel(PROJET_ASI.Data.ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        private readonly PROJET_ASI.Data.ApplicationDbContext _context = context;
 
         public Reservation Reservation { get; set; } = default!;
 

@@ -12,7 +12,7 @@ using PROJET_ASI.Models;
 
 namespace PROJET_ASI.Pages.Proprietaires
 {
-    [Authorize(Roles = "Administrateur,Proprietaire")]
+    [Authorize(Roles = "Administrateur, Proprietaire")]
     public class EditModel(PROJET_ASI.Data.ApplicationDbContext context) : PageModel
     {
         private readonly PROJET_ASI.Data.ApplicationDbContext _context = context;
