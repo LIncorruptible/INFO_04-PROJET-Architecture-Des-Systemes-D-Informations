@@ -12,7 +12,7 @@ using PROJET_ASI.Models;
 
 namespace PROJET_ASI.Pages.Logements
 {
-    [Authorize]
+    [Authorize (Roles = "Proprietaire,Administrateur")]
     public class IndexModel : Base
     {
         private readonly PROJET_ASI.Data.ApplicationDbContext _context;

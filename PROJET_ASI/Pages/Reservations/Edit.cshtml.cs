@@ -12,7 +12,7 @@ using PROJET_ASI.Models;
 
 namespace PROJET_ASI.Pages.Reservations
 {
-    [Authorize(Roles = "Administrateur,Proprietaire,Touriste")]
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly PROJET_ASI.Data.ApplicationDbContext _context;
